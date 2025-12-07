@@ -87,16 +87,21 @@
 
   @include breakpoint($large) {
     display: block;
-    width: auto;
+    width: 100%; // Ensure it takes full width of sidebar
     height: auto;
+    text-align: center; // Center the image container
+    margin-bottom: 1em; // Add some spacing below
   }
 
   img {
-    max-width: 175px;
-    min-width: 75px;
-    border-radius: 12px; // Rounded Rectangle instead of Circle
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); // Refined shadow
+    max-width: 100%; // Allow it to fill the width
+    width: 100%; // Force full width
+    height: auto; // Maintain aspect ratio
+    border-radius: 12px; // Rounded Rectangle
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover; // Ensure image covers the area nicely
+    display: block; // Remove inline gaps
 
     @include breakpoint($large) {
       padding: 0;

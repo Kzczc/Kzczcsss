@@ -5,11 +5,11 @@
 .masthead {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.9); // Semi-transparent
-  backdrop-filter: blur(10px); // Frosted glass effect
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.05); // Lighter border
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03); // Subtle shadow
+  background-color: rgba(255, 255, 255, 0.98); // More opaque for cleaner look
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06); // Slightly more visible border
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02); // Very subtle shadow
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;
@@ -19,19 +19,32 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 1em 0; // Increased padding for breathability
-    font-family: $sans-serif; // Use Inter
+    padding: 1em 0; 
+    font-family: $sans-serif; 
     display: flex;
-    justify-content: space-between; // Align items
+    justify-content: flex-end; // Right align everything since Homepage text is gone
     align-items: center;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
     }
 
+    // Custom alignment logic for Navbar items
+    // We want the navigation links (About Me, etc.) to align with the Main Content column
+    // The Sidebar is 3 columns, Content is 9 columns.
+    // So Nav should start after the 3-column gap.
+    
     nav {
       z-index: 10;
-      width: 100%;
+      width: auto; 
+      flex: 1; // Allow nav to take remaining space
+      display: block; // Changed from block to let content flow
+      
+      @include breakpoint($large) {
+         margin-left: span(3 of 12) + gutter(); 
+         // width: span(9 of 12); // Remove fixed width to avoid cutting off content
+         width: auto;
+      }
     }
 
     a {

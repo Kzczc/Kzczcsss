@@ -177,14 +177,14 @@
   min-width: 250px;
   background: transparent; 
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-start; // Change to flex-start so it aligns left within its 9-col container
   align-items: center;
 
   a {
     display: block;
-    margin: 0 0.8rem; // Reduced margin to prevent overlap
+    margin: 0 1.5rem 0 0; // Margin right only, consistent spacing
     padding: 0.5rem 0;
-    color: #334155; // Slate 700 - Better dark gray
+    color: #334155; 
     text-decoration: none;
     font-weight: 500; 
     font-size: 0.95rem;
@@ -193,7 +193,7 @@
     position: relative;
 
     &:hover {
-      color: #2563eb; // Fallback
+      color: #2563eb; 
       background: -webkit-linear-gradient(45deg, #2563eb, #f59e0b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -215,7 +215,9 @@
   .visible-links {
     display: flex;
     align-items: center;
+    justify-content: flex-end; // Force right alignment for links
     width: 100%;
+    position: relative; // For absolute positioning if needed
 
     li {
       display: block;
@@ -225,20 +227,17 @@
       &:first-child {
         font-weight: 700;
         margin-right: auto; // Push other items to right
-
+        
+        // This targets the "Homepage" text
         a {
-          margin-left: 0;
-          font-family: $serif; // Playfair Display
-          font-size: 1.3rem; // Slightly larger
-          color: #0f172a; // Slate 900
-          letter-spacing: -0.02em;
-          background: none; // No gradient for logo
-          -webkit-text-fill-color: initial;
-          
-          &:hover {
-             color: #2563eb;
-             transform: translateY(-1px); // Subtle lift
-          }
+           margin-left: 0;
+           font-family: $serif; 
+           font-size: 1.3rem; 
+           color: #0f172a; 
+           letter-spacing: -0.02em;
+           background: none; 
+           -webkit-text-fill-color: initial;
+           display: none; // Hide "Homepage" text as requested
         }
       }
 
@@ -248,6 +247,7 @@
         }
       }
     }
+
 
     a {
       position: relative;
