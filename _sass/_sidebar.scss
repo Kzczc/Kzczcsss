@@ -94,8 +94,8 @@
   img {
     max-width: 175px;
     min-width: 75px;
-    border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08); // Soft shadow
+    border-radius: 12px; // Rounded Rectangle instead of Circle
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); // Refined shadow
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     @include breakpoint($large) {
@@ -105,7 +105,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
   }
 }
@@ -252,7 +252,7 @@
     padding-right: 5px;
     padding-top: 4px;
     padding-bottom: 4px;
-    color: $text-color; // Use standard text color
+    color: #374151; // Dark Gray (Slate 700) instead of "dead gray"
     font-size: $type-size-5;
     text-decoration: none;
     word-break: break-all;
@@ -270,10 +270,11 @@
     }
 
     img {
-      filter: grayscale(100%);
-      opacity: 0.6;
+      // Remove grayscale filter to keep icons vibrant or slightly desaturated
+      // filter: grayscale(100%); 
+      opacity: 0.85; // Slightly transparent but colored
       transition: all 0.2s ease;
-      vertical-align: middle; // Ensure better alignment
+      vertical-align: middle; 
       position: relative;
       top: -1px;
     }

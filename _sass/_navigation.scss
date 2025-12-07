@@ -175,24 +175,28 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
-  background: transparent; // Make transparent to show masthead blur
+  background: transparent; 
   display: flex;
-  justify-content: flex-end; // Align right by default
+  justify-content: flex-end; 
   align-items: center;
 
   a {
     display: block;
-    margin: 0 1rem;
+    margin: 0 0.8rem; // Reduced margin to prevent overlap
     padding: 0.5rem 0;
-    color: $text-color; // Use standard dark text
+    color: #334155; // Slate 700 - Better dark gray
     text-decoration: none;
-    font-weight: 500; // Medium weight
+    font-weight: 500; 
     font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    transition: color 0.2s ease;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+    position: relative;
 
     &:hover {
-      color: #000;
+      color: #2563eb; // Fallback
+      background: -webkit-linear-gradient(45deg, #2563eb, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -225,12 +229,15 @@
         a {
           margin-left: 0;
           font-family: $serif; // Playfair Display
-          font-size: 1.2rem;
-          color: #000;
-          letter-spacing: -0.01em;
+          font-size: 1.3rem; // Slightly larger
+          color: #0f172a; // Slate 900
+          letter-spacing: -0.02em;
+          background: none; // No gradient for logo
+          -webkit-text-fill-color: initial;
           
           &:hover {
-             color: $primary-color;
+             color: #2563eb;
+             transform: translateY(-1px); // Subtle lift
           }
         }
       }
@@ -252,9 +259,27 @@
         display: none;
       }
       
-      // New hover effect (subtle opacity change or color)
+      // Dynamic Underline Animation
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, #2563eb, #f59e0b); // Rainbow gradient
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
       &:hover {
-        color: $primary-color;
+        // Handled in main a tag style
       }
     }
   }
