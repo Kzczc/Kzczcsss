@@ -226,7 +226,7 @@
            background: none !important; 
            -webkit-text-fill-color: initial !important;
            padding: 0.5rem 0; 
-           padding-left: 1.2rem; // 再向右移动一些
+           padding-left: 2.3rem; // 微调对齐
            transition: all 0.3s ease;
            
            // Elegant hover with rainbow gradient text
@@ -247,12 +247,13 @@
       // ===== Nav Links (About Me, Education, etc.) =====
       &:nth-child(n+2) {
          a {
-           margin-right: 1.5rem;
+           margin-right: 2rem;
            padding: 0.5rem 0.2rem;
-           font-weight: 500;
-           font-size: 0.95rem;
+           font-weight: 700; // 加粗
+           font-size: 1rem;
            font-family: 'Inter', $sans-serif;
-           color: #475569;
+           color: #1e293b; // 更深的颜色
+           letter-spacing: 0.01em;
            position: relative;
            
            // 纯净：无边框无背景
@@ -265,10 +266,10 @@
            &::after {
              content: '';
              position: absolute;
-             bottom: 0;
+             bottom: -2px;
              left: 0;
              width: 100%;
-             height: 2.5px;
+             height: 3px;
              border-radius: 2px;
              background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e, #3b82f6, #a855f7);
              background-size: 200% 100%;
@@ -279,8 +280,6 @@
            
            // Hover 效果
            &:hover {
-             color: #1e293b;
-             
              // 彩虹渐变文字
              background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e, #3b82f6, #a855f7);
              background-size: 200% auto;
@@ -307,7 +306,7 @@
       // First nav link (About Me) - align with content start
       &:nth-child(2) {
         a {
-          margin-left: 0; // 保持正常位置
+          margin-left: 2.5rem; // 向右移动对齐正文
         }
       }
 
