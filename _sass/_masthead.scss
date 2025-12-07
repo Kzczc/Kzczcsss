@@ -38,10 +38,16 @@
       width: 100%; // Take full width
       display: flex; // Flex to separate logo and menu
       justify-content: space-between; // Separate logo and menu
+      align-items: center;
       
       @include breakpoint($large) {
          margin-left: 0; // Reset margin
          width: 100%;
+         // Ensure Homepage (first child of ul) aligns with sidebar (3 cols)
+         // and other links align with content (starts after 3 cols)
+         // But greedy-nav structure is flat. 
+         // Let's use grid for precise alignment if flex isn't enough.
+         // Actually, simple padding/margin adjustments are easier.
       }
     }
 

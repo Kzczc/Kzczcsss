@@ -62,7 +62,11 @@ $(document).ready(function(){
 
   // Custom smooth scroll implementation for navigation
   // Use a broader selector to catch all internal anchor links in nav
-  $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click', function(event) {
+  // And use event delegation for robustness
+  $(document).on('click', 'a[href*="#"]', function(event) {
+    // Exclude empty links or just '#'
+    if (this.hash === "" || this.hash === "#") return;
+    
     // Check if the link is for the current page
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
@@ -78,15 +82,11 @@ $(document).ready(function(){
         event.preventDefault();
         
         // Calculate header height dynamically or use fixed offset
-        // Let's use a safe fixed offset that accounts for sticky header
         var headerOffset = 80; 
         
         $('html, body').animate({
           scrollTop: target.offset().top - headerOffset
-        }, 800, 'swing', function() { // Add 'swing' easing
-             // Optional: Update URL hash without jumping
-             // history.pushState(null, null, target.selector);
-        });
+        }, 800, 'swing');
         
         return false;
       }

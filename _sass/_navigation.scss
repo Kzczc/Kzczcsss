@@ -215,54 +215,75 @@
   .visible-links {
     display: flex;
     align-items: center;
-    justify-content: space-between; // Distribute space: Logo left, links right
     width: 100%;
     position: relative; 
+    margin: 0;
+    padding: 0;
 
     li {
       display: block;
       vertical-align: middle;
+      list-style: none;
 
       // Homepage/Logo styling
+      // Strictly occupy 3 of 12 columns (25%) to match Sidebar
       &:first-child {
-        font-weight: 700;
-        // No margin-right auto here, let flexbox handle it
+        width: 25%; // 3/12
+        flex-shrink: 0;
+        padding-right: 1em; // Gutter
+        box-sizing: border-box;
         
-        // This targets the "Homepage" text
         a {
-           margin-left: 0;
-           font-family: 'Playfair Display', serif; // Explicitly use Playfair
-           font-size: 1.8rem; // Make it larger and grander
+           margin: 0;
+           font-family: 'Playfair Display', serif; 
+           font-size: 1.8rem; 
            font-weight: 700;
-           font-style: italic; // Add italic for elegance
-           color: #1e293b; // Deep slate
+           font-style: italic;
+           color: #1e293b; 
            letter-spacing: -0.02em;
            background: none; 
            -webkit-text-fill-color: initial;
-           display: block; // Ensure it's visible
-           padding-left: 0; 
-           text-shadow: 0 2px 4px rgba(0,0,0,0.05); // Subtle shadow for depth
+           display: block; 
+           padding: 0.5rem 0; 
+           text-align: left; // Ensure left alignment
            
            &:hover {
              color: #2563eb;
-             text-decoration: none;
-             transform: translateY(-1px);
+             transform: none; // Remove transform to keep alignment strict
            }
         }
       }
       
-      // Target all other list items (the actual nav links)
-      &:nth-child(n+2) {
-         // We want these to be grouped together on the right
-         // But 'justify-content: space-between' on parent splits first child (left) and rest (right)? 
-         // No, space-between works on direct children. 
-         // So <li>Logo</li> <li>Link1</li> <li>Link2</li> ... will be spread out evenly.
-         // We need Logo on left, and a wrapper for Links on right.
-         // OR: make Logo li flex-grow: 0, and put margin-left: auto on the 2nd li?
+      // First nav link (About Me)
+      // Starts right after Homepage, occupying the remaining 75% space
+      // But we need it to flex properly.
+      // We want the 'A' in About Me to align with Content.
+      // Content usually has no padding-left if it's just span(9 of 12).
+      // So simple left alignment should work.
+      &:nth-child(2) {
+        margin-left: 0; 
+        padding-left: 0; // Reset padding
       }
       
-      &:nth-child(2) {
-        margin-left: auto; // Push 2nd item and subsequent items to the right
+      // All Nav Links (excluding Homepage)
+      &:nth-child(n+2) {
+         a {
+           margin-right: 1.5rem; // Space between links
+           padding: 0.5rem 0.8rem; // Clickable area + Hover effect
+           margin-left: -0.8rem; // Pull back to align text with grid line
+           border-radius: 6px;
+           transition: all 0.2s ease;
+           
+           &:hover {
+             background-color: rgba(37, 99, 235, 0.05); // Subtle blue bg
+             color: #2563eb;
+           }
+           
+           // Remove the underline animation for a cleaner button-like feel or keep it?
+           // User asked for "more beauty", maybe a pill shape hover is better.
+           // Let's keep the pill hover and remove the underline.
+           &:after { display: none; }
+         }
       }
 
       &:last-child {
