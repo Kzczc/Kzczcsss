@@ -5,8 +5,11 @@
 .masthead {
   position: sticky;
   top: 0;
-  background-color: white;
-  border-bottom: 1px solid $border-color;
+  background-color: rgba(255, 255, 255, 0.9); // Semi-transparent
+  backdrop-filter: blur(10px); // Frosted glass effect
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05); // Lighter border
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03); // Subtle shadow
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;
@@ -16,8 +19,11 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: .5em 0;
-    font-family: $sans-serif-narrow;
+    padding: 1em 0; // Increased padding for breathability
+    font-family: $sans-serif; // Use Inter
+    display: flex;
+    justify-content: space-between; // Align items
+    align-items: center;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -25,6 +31,7 @@
 
     nav {
       z-index: 10;
+      width: 100%;
     }
 
     a {

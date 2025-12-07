@@ -95,10 +95,17 @@
     max-width: 175px;
     min-width: 75px;
     border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); // Soft shadow
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     @include breakpoint($large) {
       padding: 0;
       border: 0;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
   }
 }
@@ -132,8 +139,10 @@
   @include breakpoint($medium) {
     font-size: $type-size-3;
   }
-  font-family: $sans-serif;
+  font-family: $serif; // Changed to Serif for academic look
+  font-weight: 700;
   font-size: $type-size-4;
+  letter-spacing: -0.02em;
 }
 
 .author__bio {
@@ -241,16 +250,32 @@
     display: block;
     margin-bottom: 5px;
     padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: inherit;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: $text-color; // Use standard text color
     font-size: $type-size-5;
     text-decoration: none;
     word-break: break-all;
     overflow-wrap: anywhere;
+    transition: color 0.2s ease;
 
     &:hover {
-      text-decoration: underline;
+      color: $primary-color; // Highlight color
+      text-decoration: none;
+      
+      img {
+        filter: none;
+        opacity: 1;
+      }
+    }
+
+    img {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.2s ease;
+      vertical-align: middle; // Ensure better alignment
+      position: relative;
+      top: -1px;
     }
   }
 }

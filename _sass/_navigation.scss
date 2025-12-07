@@ -175,17 +175,24 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
-  background: $background-color;
+  background: transparent; // Make transparent to show masthead blur
+  display: flex;
+  justify-content: flex-end; // Align right by default
+  align-items: center;
 
   a {
     display: block;
     margin: 0 1rem;
     padding: 0.5rem 0;
-    color: $masthead-link-color;
+    color: $text-color; // Use standard dark text
     text-decoration: none;
+    font-weight: 500; // Medium weight
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
 
     &:hover {
-      color: $masthead-link-color-hover;
+      color: #000;
     }
   }
 
@@ -202,17 +209,29 @@
   }
 
   .visible-links {
-    display: table;
+    display: flex;
+    align-items: center;
+    width: 100%;
 
     li {
-      display: table-cell;
+      display: block;
       vertical-align: middle;
 
+      // Homepage/Logo styling
       &:first-child {
-        font-weight: bold;
+        font-weight: 700;
+        margin-right: auto; // Push other items to right
 
         a {
           margin-left: 0;
+          font-family: $serif; // Playfair Display
+          font-size: 1.2rem;
+          color: #000;
+          letter-spacing: -0.01em;
+          
+          &:hover {
+             color: $primary-color;
+          }
         }
       }
 
@@ -225,26 +244,17 @@
 
     a {
       position: relative;
-
+      // Remove old underline effect
       &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        background: mix(#fff, $primary-color, 50%);
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: scaleX(0);
-            -ms-transform: scaleX(0);
-                transform: scaleX(0); /* hide*/
+        display: none;
       }
-
       &:hover:before {
-        -webkit-transform: scaleX(1);
-            -ms-transform: scaleX(1);
-                transform: scaleX(1); /* reveal*/
+        display: none;
+      }
+      
+      // New hover effect (subtle opacity change or color)
+      &:hover {
+        color: $primary-color;
       }
     }
   }
