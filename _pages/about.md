@@ -346,7 +346,7 @@ body[data-theme="dark"] .info-block-title {
 <div style="text-align: justify;">
 
 <p style="text-align: justify;">
-  I am Yuhe Wu (吴宇赫), an undergraduate student in Economic Statistics at Dongbei University of Finance and Economics, expecting to graduate in July 2026. I am currently conducting research at the Fintech Lab in the School of Fintech, supervised by <a href="https://sft.dufe.edu.cn/content_26950.html">Prof. Zhuang Liu</a>.
+  I am Yuhe Wu (吴宇赫), an undergraduate student in Economic Statistics at Dongbei University of Finance and Economics, expecting to graduate in July 2026. Currently, I'm conducting research at the Fintech Lab in the School of Fintech, supervised by <a href="https://sft.dufe.edu.cn/content_26950.html">Prof. Zhuang Liu</a>.
 </p>
 <p style="text-align: justify;">
   My research interests primarily focus on Artificial Intelligence in Finance, LLM self-evolution, LLM Reasoning and Data Generation, with an emphasis on improving the reliability, interpretability, and practical decision-making value of AI models in financial applications.
