@@ -72,10 +72,11 @@ body[data-theme="dark"] .cv-section .section-title {
 .cv-section .section-title::before {
   content: "";
   width: 6px;
-  height: 20px;
+  height: 1em;
   border-radius: 999px;
   margin-right: 0.6rem;
   background: linear-gradient(180deg,var(--cv-accent),var(--cv-accent-warm));
+  align-self: center;
 }
 
 .cv-section .section-title::after {
@@ -288,8 +289,8 @@ body[data-theme="dark"] .info-block-title {
 <section class="cv-section" markdown="1">
 <h2 class="section-title">Education</h2>
 
-- *2022.09 - 2023.09*, Business Administration, Dongbei University of Finance and Economic (DUFE), Dalian.
-- *2023.09 - Now*, Economic Statistics, Dongbei University of Finance and Economic (DUFE), Dalian.
+- *2022.09 - 2023.09*, Business Administration, Dongbei University of Finance and Economics (DUFE), Dalian.
+- *2023.09 - Now*, Economic Statistics, Dongbei University of Finance and Economics (DUFE), Dalian.
 </section>
 
 <!-- ========== Research Experience ========== -->

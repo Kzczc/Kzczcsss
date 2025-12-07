@@ -16,7 +16,7 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: .5em;
+    padding: .5em 0;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {

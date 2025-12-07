@@ -14,7 +14,7 @@
   margin-bottom: 1em;
 
   @include breakpoint($large) {
-    @include span(2 of 12);
+    @include span(3 of 12);
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
@@ -97,8 +97,8 @@
     border-radius: 50%;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: 0;
+      border: 0;
     }
   }
 }
@@ -246,6 +246,8 @@
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 
     &:hover {
       text-decoration: underline;
