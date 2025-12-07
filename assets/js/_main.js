@@ -61,7 +61,8 @@ $(document).ready(function(){
   // $("a").smoothScroll({offset: -20});
 
   // Custom smooth scroll implementation for navigation
-  $('.greedy-nav a[href*="#"]').off('click').on('click', function(event) {
+  // Use a broader selector to catch all internal anchor links in nav
+  $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click', function(event) {
     // Check if the link is for the current page
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
@@ -70,15 +71,24 @@ $(document).ready(function(){
       // Figure out element to scroll to
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      
       // Does a scroll target exist?
       if (target.length) {
         // Only prevent default if animation is actually gonna happen
         event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top - 80 // Increased Offset for sticky header
-        }, 800); 
         
-        return false; // Ensure default click doesn't happen
+        // Calculate header height dynamically or use fixed offset
+        // Let's use a safe fixed offset that accounts for sticky header
+        var headerOffset = 80; 
+        
+        $('html, body').animate({
+          scrollTop: target.offset().top - headerOffset
+        }, 800, 'swing', function() { // Add 'swing' easing
+             // Optional: Update URL hash without jumping
+             // history.pushState(null, null, target.selector);
+        });
+        
+        return false;
       }
     }
   });

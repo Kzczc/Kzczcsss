@@ -231,14 +231,23 @@
         // This targets the "Homepage" text
         a {
            margin-left: 0;
-           font-family: $serif; 
-           font-size: 1.5rem; 
-           color: #0f172a; 
+           font-family: 'Playfair Display', serif; // Explicitly use Playfair
+           font-size: 1.8rem; // Make it larger and grander
+           font-weight: 700;
+           font-style: italic; // Add italic for elegance
+           color: #1e293b; // Deep slate
            letter-spacing: -0.02em;
            background: none; 
            -webkit-text-fill-color: initial;
-           display: block; 
+           display: block; // Ensure it's visible
            padding-left: 0; 
+           text-shadow: 0 2px 4px rgba(0,0,0,0.05); // Subtle shadow for depth
+           
+           &:hover {
+             color: #2563eb;
+             text-decoration: none;
+             transform: translateY(-1px);
+           }
         }
       }
       
