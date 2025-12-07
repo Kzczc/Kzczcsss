@@ -216,7 +216,7 @@
         
         a {
            font-family: 'Playfair Display', serif; 
-           font-size: 1.6rem; 
+           font-size: 1.75rem; 
            font-weight: 700;
            font-style: italic;
            color: #0f172a; 
@@ -224,11 +224,15 @@
            background: none !important; 
            -webkit-text-fill-color: initial !important;
            padding: 0.5rem 0; 
+           transition: all 0.3s ease;
            
-           // Elegant hover
+           // Elegant hover with gradient text
            &:hover {
-             color: #2563eb;
-             text-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+             background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+             -webkit-background-clip: text !important;
+             -webkit-text-fill-color: transparent !important;
+             text-shadow: none;
+             transform: scale(1.02);
            }
            
            &:after { display: none; } // No underline
@@ -238,19 +242,52 @@
       // ===== Nav Links (About Me, Education, etc.) =====
       &:nth-child(n+2) {
          a {
-           margin-right: 2rem;
-           padding: 0.6rem 1rem;
-           font-weight: 500;
-           font-size: 0.9rem;
-           color: #475569;
-           border-radius: 8px;
-           transition: all 0.25s ease;
+           margin-right: 1.2rem;
+           padding: 0.55rem 1.1rem;
+           font-weight: 600;
+           font-size: 1rem; // 稍微大一点
+           font-family: 'Inter', $sans-serif;
+           color: #1e293b; // 更深的颜色，不再灰暗
+           border-radius: 10px;
+           position: relative;
+           overflow: hidden;
            
-           // Stylish hover effect - gradient pill
+           // 静态背景 - 微妙的渐变
+           background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.9));
+           border: 1px solid rgba(226, 232, 240, 0.8);
+           box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+           
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           
+           // 动态光效伪元素
+           &::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+             transition: left 0.5s ease;
+           }
+           
+           // Hover 动态效果
            &:hover {
-             background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(245, 158, 11, 0.08));
-             color: #1e40af;
-             transform: translateY(-1px);
+             background: linear-gradient(135deg, #2563eb, #3b82f6);
+             color: #ffffff;
+             border-color: transparent;
+             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3), 0 0 0 2px rgba(37, 99, 235, 0.1);
+             transform: translateY(-2px);
+             
+             &::before {
+               left: 100%; // 光效滑过
+             }
+           }
+           
+           // Active 状态
+           &:active {
+             transform: translateY(0);
+             box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
            }
            
            &:after { display: none; }

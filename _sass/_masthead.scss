@@ -5,11 +5,13 @@
 .masthead {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.98); // More opaque for cleaner look
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.06); // Slightly more visible border
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02); // Very subtle shadow
+  // 更精致的背景 - 微妙的渐变
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 250, 251, 0.95));
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px);
+  // 更细腻的下边框
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04);
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;
@@ -19,9 +21,8 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 1em 0; 
+    padding: 0.9em 0; 
     font-family: $sans-serif; 
-    // Remove flex centering - let nav handle layout
     display: block;
 
     @include breakpoint($x-large) {
@@ -31,6 +32,8 @@
     nav {
       z-index: 10;
       width: 100%;
+      display: flex;
+      align-items: center;
     }
 
     a {

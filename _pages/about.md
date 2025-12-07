@@ -11,6 +11,11 @@ redirect_from:
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap');
 
+/* ===== 平滑滚动 ===== */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== 基础配色 & 字体 ===== */
 :root {
   --cv-font-body: 'Poppins','Noto Sans SC',-apple-system,system-ui,sans-serif;
@@ -38,6 +43,29 @@ redirect_from:
   font-family: var(--cv-font-body);
 }
 
+/* ===== 入场动画 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cv-section {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.cv-section:nth-child(1) { animation-delay: 0.1s; }
+.cv-section:nth-child(2) { animation-delay: 0.2s; }
+.cv-section:nth-child(3) { animation-delay: 0.3s; }
+.cv-section:nth-child(4) { animation-delay: 0.4s; }
+.cv-section:nth-child(5) { animation-delay: 0.5s; }
+.cv-section:nth-child(6) { animation-delay: 0.6s; }
+
 /* ===== 通用 Section 卡片 ===== */
 .cv-section {
   background: linear-gradient(145deg,#ffffff,#f9fafb);
@@ -46,6 +74,13 @@ redirect_from:
   padding: 1.8rem 1.7rem 1.7rem;
   margin-bottom: 1.6rem;
   box-shadow: 0 14px 32px rgba(15,23,42,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-margin-top: 100px; /* 为 sticky header 预留空间 */
+}
+
+.cv-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15,23,42,0.1);
 }
 
 body[data-theme="dark"] .cv-section {
@@ -116,10 +151,33 @@ body[data-theme="dark"] .cv-section li {
 
 .cv-section ul {
   margin-top: 0.2rem;
+  padding-left: 1.2rem;
+}
+
+.cv-section li {
+  position: relative;
+  padding-left: 0.3rem;
+}
+
+.cv-section li::marker {
+  color: var(--cv-accent);
+  font-weight: bold;
 }
 
 .cv-section li + li {
-  margin-top: 0.18rem;
+  margin-top: 0.35rem;
+}
+
+/* 列表项悬停效果 */
+.info-block li {
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  margin-left: -0.4rem;
+  transition: background-color 0.2s ease;
+}
+
+.info-block li:hover {
+  background-color: rgba(37, 99, 235, 0.04);
 }
 
 /* ===== Publication：简洁卡片样式 ===== */
@@ -145,6 +203,13 @@ body[data-theme="dark"] .cv-section li {
   border-radius: 16px;
   border: 1px solid var(--cv-border-soft);
   background: radial-gradient(circle at top left,#eff6ff,#f9fafb);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pub-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+  border-color: var(--cv-accent);
 }
 
 body[data-theme="dark"] .pub-item {
@@ -178,9 +243,15 @@ body[data-theme="dark"] .pub-index {
 .info-block {
   border-radius: 16px;
   border: 1px solid var(--cv-border-soft);
-  background: #f9fafb;
+  background: linear-gradient(135deg, #f9fafb, #ffffff);
   padding: 0.95rem 1.1rem;
   margin-top: 0.7rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 body[data-theme="dark"] .info-block {
@@ -269,8 +340,7 @@ body[data-theme="dark"] .info-block-title {
 <div class="cv-main">
 
 <!-- ========== About Me ========== -->
-<section class="cv-section" markdown="1">
-<span class='anchor' id='about-me'></span>
+<section class="cv-section" id="about-me" markdown="1">
 <h2 class="section-title">About Me</h2>
 
 <div style="text-align: justify;">
@@ -286,7 +356,7 @@ body[data-theme="dark"] .info-block-title {
 </section>
 
 <!-- ========== Education ========== -->
-<section class="cv-section" markdown="1">
+<section class="cv-section" id="education" markdown="1">
 <h2 class="section-title">Education</h2>
 
 - *2022.09 - 2023.09*, Business Administration, Dongbei University of Finance and Economics (DUFE), Dalian.
@@ -294,7 +364,7 @@ body[data-theme="dark"] .info-block-title {
 </section>
 
 <!-- ========== Research Experience ========== -->
-<section class="cv-section" markdown="1">
+<section class="cv-section" id="research-experience" markdown="1">
 <h2 class="section-title">Research Experience</h2>
 
 - *2025.06 - Now*, Research Assistant, **Fintech Thrust**, Hong Kong University of Science and Technology (Guangzhou).
@@ -303,7 +373,7 @@ body[data-theme="dark"] .info-block-title {
 </section>
 
 <!-- ========== Publication ========== -->
-<section class="cv-section">
+<section class="cv-section" id="publication">
   <h2 class="section-title">Publication</h2>
 
   <div class="pub-category" style="text-align: justify;">
@@ -345,7 +415,7 @@ body[data-theme="dark"] .info-block-title {
 </section>
 
 <!-- ========== Others ========== -->
-<section class="cv-section">
+<section class="cv-section" id="others">
   <h2 class="section-title">Others</h2>
 
   <div class="info-block">
@@ -431,7 +501,7 @@ body[data-theme="dark"] .info-block-title {
 </section>
 
 <!-- ========== Startup Project ========== -->
-<section class="cv-section" markdown="1">
+<section class="cv-section" id="startup-projects" markdown="1">
 <h2 class="section-title">Startup Project</h2>
 
 <h4>💪 Upcoming Project</h4>
