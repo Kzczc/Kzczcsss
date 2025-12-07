@@ -215,9 +215,9 @@
   .visible-links {
     display: flex;
     align-items: center;
-    justify-content: flex-end; // Force right alignment for links
+    justify-content: space-between; // Distribute space: Logo left, links right
     width: 100%;
-    position: relative; // For absolute positioning if needed
+    position: relative; 
 
     li {
       display: block;
@@ -226,19 +226,34 @@
       // Homepage/Logo styling
       &:first-child {
         font-weight: 700;
-        margin-right: auto; // Push other items to right
+        // No margin-right auto here, let flexbox handle it
         
         // This targets the "Homepage" text
         a {
            margin-left: 0;
            font-family: $serif; 
-           font-size: 1.3rem; 
+           font-size: 1.5rem; 
            color: #0f172a; 
            letter-spacing: -0.02em;
            background: none; 
            -webkit-text-fill-color: initial;
-           display: none; // Hide "Homepage" text as requested
+           display: block; 
+           padding-left: 0; 
         }
+      }
+      
+      // Target all other list items (the actual nav links)
+      &:nth-child(n+2) {
+         // We want these to be grouped together on the right
+         // But 'justify-content: space-between' on parent splits first child (left) and rest (right)? 
+         // No, space-between works on direct children. 
+         // So <li>Logo</li> <li>Link1</li> <li>Link2</li> ... will be spread out evenly.
+         // We need Logo on left, and a wrapper for Links on right.
+         // OR: make Logo li flex-grow: 0, and put margin-left: auto on the 2nd li?
+      }
+      
+      &:nth-child(2) {
+        margin-left: auto; // Push 2nd item and subsequent items to the right
       }
 
       &:last-child {

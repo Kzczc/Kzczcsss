@@ -61,7 +61,7 @@ $(document).ready(function(){
   // $("a").smoothScroll({offset: -20});
 
   // Custom smooth scroll implementation for navigation
-  $('.greedy-nav a[href*="#"]').click(function(event) {
+  $('.greedy-nav a[href*="#"]').off('click').on('click', function(event) {
     // Check if the link is for the current page
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
@@ -76,7 +76,9 @@ $(document).ready(function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: target.offset().top - 80 // Increased Offset for sticky header
-        }, 800); // Slightly faster animation
+        }, 800); 
+        
+        return false; // Ensure default click doesn't happen
       }
     }
   });

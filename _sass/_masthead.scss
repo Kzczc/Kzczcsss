@@ -30,20 +30,18 @@
     }
 
     // Custom alignment logic for Navbar items
-    // We want the navigation links (About Me, etc.) to align with the Main Content column
-    // The Sidebar is 3 columns, Content is 9 columns.
-    // So Nav should start after the 3-column gap.
+    // We want Homepage to align with Sidebar (3 cols)
+    // And Nav links to align with Content (9 cols)
     
     nav {
       z-index: 10;
-      width: auto; 
-      flex: 1; // Allow nav to take remaining space
-      display: block; // Changed from block to let content flow
+      width: 100%; // Take full width
+      display: flex; // Flex to separate logo and menu
+      justify-content: space-between; // Separate logo and menu
       
       @include breakpoint($large) {
-         margin-left: span(3 of 12) + gutter(); 
-         // width: span(9 of 12); // Remove fixed width to avoid cutting off content
-         width: auto;
+         margin-left: 0; // Reset margin
+         width: 100%;
       }
     }
 
