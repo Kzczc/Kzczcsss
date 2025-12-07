@@ -21,34 +21,16 @@
     @include clearfix;
     padding: 1em 0; 
     font-family: $sans-serif; 
-    display: flex;
-    justify-content: flex-end; // Right align everything since Homepage text is gone
-    align-items: center;
+    // Remove flex centering - let nav handle layout
+    display: block;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
     }
-
-    // Custom alignment logic for Navbar items
-    // We want Homepage to align with Sidebar (3 cols)
-    // And Nav links to align with Content (9 cols)
     
     nav {
       z-index: 10;
-      width: 100%; // Take full width
-      display: flex; // Flex to separate logo and menu
-      justify-content: space-between; // Separate logo and menu
-      align-items: center;
-      
-      @include breakpoint($large) {
-         margin-left: 0; // Reset margin
-         width: 100%;
-         // Ensure Homepage (first child of ul) aligns with sidebar (3 cols)
-         // and other links align with content (starts after 3 cols)
-         // But greedy-nav structure is flat. 
-         // Let's use grid for precise alignment if flex isn't enough.
-         // Actually, simple padding/margin adjustments are easier.
-      }
+      width: 100%;
     }
 
     a {
@@ -58,6 +40,8 @@
 }
 
 .masthead__menu {
+  @include clearfix;
+  width: 100%;
 
   ul {
     margin: 0;

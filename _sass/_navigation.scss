@@ -177,13 +177,11 @@
   min-width: 250px;
   background: transparent; 
   display: flex;
-  justify-content: flex-start; // Change to flex-start so it aligns left within its 9-col container
   align-items: center;
+  width: 100%;
 
   a {
     display: block;
-    margin: 0 1.5rem 0 0; // Margin right only, consistent spacing
-    padding: 0.5rem 0;
     color: #334155; 
     text-decoration: none;
     font-weight: 500; 
@@ -191,140 +189,81 @@
     letter-spacing: 0.01em;
     transition: all 0.3s ease;
     position: relative;
-
-    &:hover {
-      color: #2563eb; 
-      background: -webkit-linear-gradient(45deg, #2563eb, #f59e0b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   }
 
   button {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    padding: 0 0.5rem;
-    border: 0;
-    outline: none;
-    background-color: $primary-color;
-    color: #fff;
-    cursor: pointer;
+    display: none; // Hide hamburger
   }
 
   .visible-links {
     display: flex;
     align-items: center;
     width: 100%;
-    position: relative; 
     margin: 0;
     padding: 0;
+    list-style: none;
 
     li {
       display: block;
-      vertical-align: middle;
       list-style: none;
 
-      // Homepage/Logo styling
-      // Strictly occupy 3 of 12 columns (25%) to match Sidebar
+      // ===== Homepage =====
+      // Occupy exactly 25% (3/12) width to match Sidebar
       &:first-child {
-        width: 25%; // 3/12
-        flex-shrink: 0;
-        padding-right: 1em; // Gutter
-        box-sizing: border-box;
+        @include breakpoint($large) {
+          @include span(3 of 12); // Match sidebar width exactly
+        }
         
         a {
-           margin: 0;
            font-family: 'Playfair Display', serif; 
-           font-size: 1.8rem; 
+           font-size: 1.6rem; 
            font-weight: 700;
            font-style: italic;
-           color: #1e293b; 
+           color: #0f172a; 
            letter-spacing: -0.02em;
-           background: none; 
-           -webkit-text-fill-color: initial;
-           display: block; 
+           background: none !important; 
+           -webkit-text-fill-color: initial !important;
            padding: 0.5rem 0; 
-           text-align: left; // Ensure left alignment
            
+           // Elegant hover
            &:hover {
              color: #2563eb;
-             transform: none; // Remove transform to keep alignment strict
+             text-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
            }
+           
+           &:after { display: none; } // No underline
         }
       }
       
-      // First nav link (About Me)
-      // Starts right after Homepage, occupying the remaining 75% space
-      // But we need it to flex properly.
-      // We want the 'A' in About Me to align with Content.
-      // Content usually has no padding-left if it's just span(9 of 12).
-      // So simple left alignment should work.
-      &:nth-child(2) {
-        margin-left: 0; 
-        padding-left: 0; // Reset padding
-      }
-      
-      // All Nav Links (excluding Homepage)
+      // ===== Nav Links (About Me, Education, etc.) =====
       &:nth-child(n+2) {
          a {
-           margin-right: 1.5rem; // Space between links
-           padding: 0.5rem 0.8rem; // Clickable area + Hover effect
-           margin-left: -0.8rem; // Pull back to align text with grid line
-           border-radius: 6px;
-           transition: all 0.2s ease;
+           margin-right: 2rem;
+           padding: 0.6rem 1rem;
+           font-weight: 500;
+           font-size: 0.9rem;
+           color: #475569;
+           border-radius: 8px;
+           transition: all 0.25s ease;
            
+           // Stylish hover effect - gradient pill
            &:hover {
-             background-color: rgba(37, 99, 235, 0.05); // Subtle blue bg
-             color: #2563eb;
+             background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(245, 158, 11, 0.08));
+             color: #1e40af;
+             transform: translateY(-1px);
            }
            
-           // Remove the underline animation for a cleaner button-like feel or keep it?
-           // User asked for "more beauty", maybe a pill shape hover is better.
-           // Let's keep the pill hover and remove the underline.
            &:after { display: none; }
          }
       }
-
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
-      }
-    }
-
-
-    a {
-      position: relative;
-      // Remove old underline effect
-      &:before {
-        display: none;
-      }
-      &:hover:before {
-        display: none;
-      }
       
-      // Dynamic Underline Animation
-      &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(90deg, #2563eb, #f59e0b); // Rainbow gradient
-        transform-origin: bottom right;
-        transition: transform 0.3s ease-out;
+      // First nav link (About Me) - align with content start
+      &:nth-child(2) a {
+        margin-left: 0;
       }
 
-      &:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-
-      &:hover {
-        // Handled in main a tag style
+      &:last-child a {
+        margin-right: 0;
       }
     }
   }
