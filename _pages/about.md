@@ -382,16 +382,21 @@ body[data-theme="dark"] .info-block-title {
     <ul class="pub-list">
       <li class="pub-item">
         <span class="pub-index">J1</span>
-        <p class="pub-text"><strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Ruitong Liu, Wayne Lin, Zhuang Liu*, Xuhui Wang*. "HarmoniBERT:A Cross-Cultural Ensemble Learning Framework for ESG Text Annotation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Guang Zhang, Zhuang Liu, Xuhui Wang, Yuran Chen. "The Cognitive Boundary of Generative Agents: Economic Coherence under Structural Complexity." In <strong>Management Science</strong>. [Under Review, UTD24]</p>
       </li>
 
       <li class="pub-item">
         <span class="pub-index">J2</span>
-        <p class="pub-text"><strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu*, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Accepted, ABS3, JCR Q1]</p>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Ruitong Liu, Wayne Lin, Zhuang Liu*, Xuhui Wang*. "HarmoniBERT: A Cross-Cultural Ensemble Learning Framework for ESG Text Annotation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
       </li>
 
       <li class="pub-item">
         <span class="pub-index">J3</span>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu*, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Accepted, ABS3, JCR Q1]</p>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-index">J4</span>
         <p class="pub-text">Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCF T2, 北大中文核心]</p>
       </li>
     </ul>
@@ -403,12 +408,22 @@ body[data-theme="dark"] .info-block-title {
     <ul class="pub-list">
       <li class="pub-item">
         <span class="pub-index">C1</span>
-        <p class="pub-text">Jianing Hao, <strong>Yuhe Wu</strong>, Yuanjian Xu, Shichang MENG, Shuai Yuan, Wei Zeng, ZixuanWang, Guang Zhang*. "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications" In <strong>ACL 2026</strong>. [Under Review,CCF A]</p>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Guangyu Wang, Yuran Chen, Jiatong Zhang, Yutong Zhang, Yujie Chen, Jiaming Shang, Guang Zhang, Zhuang Liu. "PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations." In <strong>ACL 2026</strong>. [Under Review, CCF A]</p>
       </li>
 
       <li class="pub-item">
         <span class="pub-index">C2</span>
-        <p class="pub-text"><strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su,Zhuang Liu*. "PolluVCCT: Multi-Scale Hybrid Learning for Robust Air Pollution Forecasting Across Diverse Climate Zonesti-source data Fusion." In <strong>KDD-UMC 2025</strong>. [Accepted,CCF A]</p>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Guangyu Wang, Yuanjian Xu, Jianing Hao, Changwei Xu, Guang Zhang. "Rethinking Risk Forecasting From Financial News: Distributional Supervision Beyond Point Predictions." In <strong>ACL 2026</strong>. [Under Review, CCF A]</p>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-index">C3</span>
+        <p class="pub-text">Jianing Hao, <strong>Yuhe Wu</strong>, Yuanjian Xu, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Wang, Guang Zhang*. "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications." In <strong>ACL 2026</strong>. [Under Review, CCF A]</p>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-index">C4</span>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su, Zhuang Liu*. "PolluVCCT: Multi-Scale Hybrid Learning for Robust Air Pollution Forecasting Across Diverse Climate Zonesti-source data Fusion." In <strong>KDD-UMC 2025</strong>. [Accepted, CCF A]</p>
       </li>
     </ul>
   </div>
