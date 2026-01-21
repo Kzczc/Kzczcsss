@@ -382,7 +382,7 @@ body[data-theme="dark"] .info-block-title {
     <ul class="pub-list">
       <li class="pub-item">
         <span class="pub-index">J1</span>
-        <p class="pub-text"><strong>Yuhe Wu</strong>, Guang Zhang, Zhuang Liu, Xuhui Wang, Yuran Chen. "The Cognitive Boundary of Generative Agents: Economic Coherence under Structural Complexity." In <strong>Management Science</strong>. [Under Review, UTD24]</p>
+        <p class="pub-text"><strong>Yuhe Wu</strong>, Guang Zhang, Zhuang Liu*, Xuhui Wang*, Yuran Chen. "The Cognitive Boundary of Generative Agents: Economic Coherence under Structural Complexity." In <strong>Management Science</strong>. [Under Review, UTD24]</p>
       </li>
 
       <li class="pub-item">
